@@ -130,10 +130,40 @@ function panoramic_widgets_init() {
 	) );
 	
 	register_sidebar(array(
-		'name' => __( 'Footer', 'panoramic' ),
-		'id' => 'footer',
+		'name' => __( 'Footer Top', 'panoramic' ),
+		'id' => 'footer-top',
         'description' => ''
 	));
+	register_sidebar( array(
+		'name'          => __( 'Copyright Text', 'panoramic' ),
+		'id'            => 'copyright-text',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>'
+	) );
+	register_sidebar(array(
+		'name' => __( 'Footer Column 1', 'panoramic' ),
+		'id' => 'footer-column-1',
+        'description' => ''
+	));
+	register_sidebar(array(
+		'name' => __( 'Footer Column 2', 'panoramic' ),
+		'id' => 'footer-column-2',
+        'description' => ''
+	));
+	register_sidebar(array(
+		'name' => __( 'Right Fixed', 'panoramic' ),
+		'id' => 'right-fixed',
+        'description' => ''
+	));
+	register_sidebar(array(
+		'name' => __( 'Left Fixed', 'panoramic' ),
+		'id' => 'left-fixed',
+        'description' => ''
+	));
+	
 }
 add_action( 'widgets_init', 'panoramic_widgets_init' );
 
@@ -464,3 +494,6 @@ function panoramic_register_required_plugins() {
 	tgmpa( $plugins, $config );
 }
 add_action( 'tgmpa_register', 'panoramic_register_required_plugins' );
+
+/* Create Custom Scripts */
+require_once( get_template_directory() . '/custom-scripts.php' );

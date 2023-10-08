@@ -15,7 +15,7 @@ get_header(); ?>
         
     <?php endif; ?>
 
-	<div id="primary" class="content-area <?php echo esc_attr( get_theme_mod( 'panoramic-rpwe-site-content-layout', customizer_library_get_default( 'panoramic-rpwe-site-content-layout' ) ) ); ?>">
+	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
             
             <?php get_template_part( 'library/template-parts/page-title' ); ?>
@@ -25,8 +25,8 @@ get_header(); ?>
 				<?php get_template_part( 'library/template-parts/content', 'page' ); ?>
 
 				<?php
-					// If comments are open load up the comment template
-					if ( comments_open() ) :
+					// If comments are open or we have at least one comment, load up the comment template
+					if ( comments_open() || get_comments_number() ) :
 						comments_template();
 					endif;
 				?>
